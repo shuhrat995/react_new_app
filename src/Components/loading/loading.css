@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap');
+
+/* ── Keyframes ── */
+@keyframes spin1 { to { transform: rotate(360deg);  } }
+@keyframes spin2 { to { transform: rotate(-360deg); } }
+@keyframes spin3 { to { transform: rotate(360deg);  } }
+
+/* ── Overlay ── */
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(ellipse at 50% 55%, #100c00 0%, #000 65%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: none;
+}
+.splash-fadeout {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* ── Fon nuqtalari ── */
+.splash-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.splash-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: #c9a84c;
+}
+
+/* ── Karta ── */
+.splash-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ── Ring wrap ── */
+.splash-ring-wrap {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Ringlar ── */
+.splash-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ring-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ring-outer {
+  width: 234px;
+  height: 234px;
+  border-top-color: #c9a84c;
+  border-right-color: #c9a84c44;
+  animation: spin1 4s linear infinite;
+}
+.ring-mid {
+  width: 212px;
+  height: 212px;
+  border-bottom-color: #e8cc7a;
+  border-left-color: #e8cc7a44;
+  animation: spin2 6s linear infinite;
+}
+.ring-inner {
+  width: 190px;
+  height: 190px;
+  border-top-color: #c9a84c55;
+  border-left-color: #c9a84c22;
+  animation: spin3 9s linear infinite;
+}
+
+/* ── Logo ── */
+.splash-logo {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 16px #c9a84c88) drop-shadow(0 0 32px #c9a84c44);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c9a84c;
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.4), inset 0 0 20px rgba(201, 168, 76, 0.2);
+}
+.logo-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Tagline ── */
+.splash-tagline {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  letter-spacing: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease 0.15s;
+}
+
+/* ── Badge ── */
+.splash-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1a1400, #0d0d0d);
+  border: 1px solid #c9a84c55;
+  border-radius: 40px;
+  padding: 8px 22px;
+  box-shadow: 0 0 20px #c9a84c22;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease 0.3s;
+}
+.badge-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a84c;
+  box-shadow: 0 0 6px #c9a84c;
+}
+.badge-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #e8cc7a;
+}
+
+/* ── item-visible (tagline + badge uchun) ── */
+.item-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ── Progress bar ── */
+.splash-progress-wrap {
+  width: 180px;
+  height: 2px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.5s;
+}
+.splash-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7a5f1a, #e8cc7a, #c9a84c);
+  border-radius: 2px;
+  box-shadow: 0 0 8px #c9a84caa;
+  transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+.bar-full {
+  width: 100%;
+}
