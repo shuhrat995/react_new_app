@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Logo from "../../../public/image.png";
-import "./Loading.css"
+import "./loading.css"
 export default function Loading({onFinish}) {
   const [phase, setPhase] = useState("idle");
 
