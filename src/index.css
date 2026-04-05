@@ -38,31 +38,38 @@
   --accent-color: #60a5fa;
 }
 
-html[data-font-size="small"] {
+html[data-font-size="small"],
+body[data-font-size="small"] {
   font-size: 14px;
 }
 
-html[data-font-size="medium"] {
+html[data-font-size="medium"],
+body[data-font-size="medium"] {
   font-size: 16px;
 }
 
-html[data-font-size="large"] {
+html[data-font-size="large"],
+body[data-font-size="large"] {
   font-size: 18px;
 }
 
-[data-lang="en"] .txt-uz {
+[data-lang="en"] .txt-uz,
+body[data-lang="en"] .txt-uz {
   display: none !important;
 }
 
-[data-lang="en"] .txt-en {
+[data-lang="en"] .txt-en,
+body[data-lang="en"] .txt-en {
   display: inline !important;
 }
 
-[data-lang="uz"] .txt-en {
+[data-lang="uz"] .txt-en,
+body[data-lang="uz"] .txt-en {
   display: none !important;
 }
 
-[data-lang="uz"] .txt-uz {
+[data-lang="uz"] .txt-uz,
+body[data-lang="uz"] .txt-uz {
   display: inline !important;
 }
 

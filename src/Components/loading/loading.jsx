@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import Logo from "../../../public/image.png";
+import Logo from "/image.png?url";
 import "./loading.css"
+
 export default function Loading({onFinish}) {
   const [phase, setPhase] = useState("idle");
 
@@ -19,9 +20,10 @@ export default function Loading({onFinish}) {
 
   const show = phase === "content" || phase === "fadeout";
   const ringShow = phase === "ring" || show;
+  
   return (
      <div className={`splash-overlay ${phase === "fadeout" ? "splash-fadeout" : ""}`}>
- 
+
       {/* Fon nuqtalari */}
       <div className="splash-dots">
         {[...Array(24)].map((_, i) => (
@@ -38,39 +40,28 @@ export default function Loading({onFinish}) {
           />
         ))}
       </div>
- 
+
       {/* Markaziy karta */}
       <div className="splash-card">
- 
+
         {/* Ringlar + Logo */}
         <div className="splash-ring-wrap">
           <div className={`splash-ring ring-outer ${ringShow ? "ring-visible" : ""}`} />
           <div className={`splash-ring ring-mid   ${show     ? "ring-visible" : ""}`} />
           <div className={`splash-ring ring-inner ${show     ? "ring-visible" : ""}`} />
- 
+
           <img
             src={Logo}
             alt="LexUz"
             className={`splash-logo ${ringShow ? "logo-visible" : ""}`}
           />
         </div>
- 
-        {/* Tagline */}
-        <p className={`splash-tagline ${show ? "item-visible" : ""}`}>
-          O'zbek tili lug'ati
-        </p>
- 
-        {/* Badge */}
-        <div className={`splash-badge ${show ? "item-visible" : ""}`}>
-          <span className="badge-dot" />
-          <span className="badge-text">14 000+ SO'Z</span>
-        </div>
- 
+
         {/* Progress bar */}
         <div className={`splash-progress-wrap ${show ? "item-visible" : ""}`}>
           <div className={`splash-progress-bar ${show ? "bar-full" : ""}`} />
         </div>
- 
+
       </div>
     </div>
   );

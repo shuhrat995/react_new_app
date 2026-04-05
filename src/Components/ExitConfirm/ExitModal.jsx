@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+// Exit modal dialog
 export default function ExitModal({ isOpen, onClose, onConfirm }) {
     useEffect(() => {
         if (isOpen) {

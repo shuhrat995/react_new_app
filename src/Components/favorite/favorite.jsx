@@ -1,9 +1,11 @@
 import { useFavorites } from "../../context/FavoritesContext";
 import "./favorite.css";
 
+// Favorites page component
 export default function Favorites() {
   const { favorites, toggleFavorite } = useFavorites();
 
+  // Handle remove from favorites
   const handleRemoveFavorite = (word, e) => {
     e.stopPropagation();
     toggleFavorite(word);
@@ -12,7 +14,7 @@ export default function Favorites() {
   return (
     <div className="favorites-page">
       <h2>⭐ Favorites</h2>
-      
+
       {favorites.length === 0 ? (
         <div className="favorites-empty">
           <p>📭 Hozircha saqlangan so'zlar yo'q</p>

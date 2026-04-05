@@ -3,18 +3,21 @@ import "./setting.css";
 import { useSettings } from "../../context/SettingsContext";
 import { IoCopyOutline, IoCheckmarkOutline } from "react-icons/io5";
 
+// Chevron icon component
 const ChevronIcon = () => (
   <svg viewBox="0 0 24 24">
     <path d="M6 9l6 6 6-6" />
   </svg>
 );
 
+// Settings page
 export default function Settings() {
   const { theme, setTheme, lang, setLang, fontSize, setFontSize } = useSettings();
   const [cardCopied, setCardCopied] = useState(false);
 
+  // Copy card number to clipboard
   const handleCopyCard = () => {
-    navigator.clipboard.writeText("9860 1966 1662 98**");
+    navigator.clipboard.writeText("9860 1966 1662 9800");
     setCardCopied(true);
     setTimeout(() => setCardCopied(false), 2000);
   };
@@ -27,7 +30,7 @@ export default function Settings() {
 
       <div className="set-scroll">
 
-        {/* tema */}
+        {/* Tema */}
         <div className="set-group">
           <label className="set-group-label">Mavzu</label>
           <div className="set-select-wrap">
@@ -39,7 +42,7 @@ export default function Settings() {
           </div>
         </div>
 
-        {/* til */}
+        {/* Til */}
         <div className="set-group">
           <label className="set-group-label">
             {lang === "uz" ? "Til" : "Language"}
@@ -53,7 +56,7 @@ export default function Settings() {
           </div>
         </div>
 
-        {/* shrift */}
+        {/* Shrift */}
         <div className="set-group">
           <label className="set-group-label">
             {lang === "uz" ? "Shrift o'lchami" : "Font size"}
@@ -68,15 +71,15 @@ export default function Settings() {
           </div>
         </div>
 
+        {/* Coffee section */}
         <main>
                 <div className="coffee-container">
                     <div className="emoji-big">☕</div>
                     <h1>Buy me a coffee</h1>
                     <p>
-                        If you like this dictionary app and
-                        want to support its development,
-                        you can send me a small donation.
-                        Thank you!
+                        {lang === "uz"
+                            ? "Agar sizga bu lug'at ilovasi yoqqan bo'lsa va uning rivojlanishini qo'llab-quvvatlamoqchi bo'lsangiz, menga kichik xayriya yuborishingiz mumkin. Rahmat!"
+                            : "If you like this dictionary app and want to support its development, you can send me a small donation. Thank you!"}
                     </p>
                     <div className="coffee-number" onClick={handleCopyCard}>
                         <span className="card-text">9860 1966 1662 98**</span>

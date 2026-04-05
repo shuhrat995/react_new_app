@@ -11,11 +11,13 @@ import ExitModal from "./Components/ExitConfirm/ExitModal.jsx";
 import Loading from "./Components/loading/loading.jsx";
 import "./App.css";
 
+// Asosiy kontent komponenti
 function AppContent() {
     const location = useLocation();
     const navigate = useNavigate();
     const [showExitModal, setShowExitModal] = useState(false);
 
+    // Back button handler
     useEffect(() => {
         const handleBackButton = () => {
             if (location.pathname === "/") {
@@ -27,6 +29,7 @@ function AppContent() {
 
         window.addEventListener("popstate", handleBackButton);
 
+        // Capacitor back button
         CapacitorApp.addListener("backButton", () => {
             handleBackButton();
         });
@@ -43,10 +46,10 @@ function AppContent() {
 
     return (
         <>
-            <ExitModal 
-                isOpen={showExitModal} 
-                onClose={() => setShowExitModal(false)} 
-                onConfirm={handleExitConfirm} 
+            <ExitModal
+                isOpen={showExitModal}
+                onClose={() => setShowExitModal(false)}
+                onConfirm={handleExitConfirm}
             />
             <div className="app-container">
                 <Routes>
@@ -63,6 +66,7 @@ function AppContent() {
 function App() {
     const [splashDone, setSplashDone] = useState(false);
 
+    // Loading screen tugaguncha
     if (!splashDone) {
         return <Loading onFinish={() => setSplashDone(true)} />;
     }
